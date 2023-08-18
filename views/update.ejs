@@ -1,0 +1,81 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    table {
+        width: 500px;
+        border-collapse: collapse;
+        margin: 20px auto;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    input[type="text"], input[type="radio"], input[type="submit"] {
+        padding: 5px;
+        margin: 5px 0;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+<form action="/updateData" method="post">
+    <input type="hidden" name="editid" value="<%= Record.id %>">
+    <table border="2">
+        <tr>
+            <td>Movie Name</td>
+            <td><input type="text" value="<%= Record.name %>" name="name"></td>
+        </tr>
+        <tr>
+            <td>Movie Language</td>
+            <td>
+                <input type="radio" value="english" name="language" <% if(Record.language == 'english'){ %> checked <% } %>>English
+                <input type="radio" value="hindi" name="language" <% if(Record.language == 'hindi'){ %> checked <% } %>>Hindi
+                <input type="radio" value="gujarati" name="language" <% if(Record.language == 'gujarati'){ %> checked <% } %>>Gujarati
+            </td>
+        </tr>
+        <tr>
+            <td>Realese Year</td>
+            <td><input type="text" value="<%= Record.year %>" name="year"></td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td><input type="text" value="<%= Record.category %>" name="category"></td>
+        </tr>
+        <tr>
+            <td></td>   
+            <td><input type="submit"></td>
+        </tr>
+    </table>
+</form>
